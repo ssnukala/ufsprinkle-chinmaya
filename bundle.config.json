@@ -1,0 +1,74 @@
+{
+    "bundle": {
+        "js/chinmaya": {
+            "scripts": [
+                "local/chinmaya/js/chinmaya.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "js/pageutil1": {
+            "scripts": [
+                "vendor/lightbox2/dist/js/lightbox.min.js",
+                "vendor/lightbox2/dist/js/lightbox-plus-jquery.min.js",
+                "vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
+                "vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js",
+                "vendor/geocomplete/jquery.geocomplete.min.js",
+                "local/util/js/chinmaya_util_99.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "css/pageutil1": {
+            "styles": [
+                "vendor/lightbox2/dist/css/lightbox.min.css",
+                "vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css"
+                
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "styles": "plain"
+                    }
+                }
+            }
+        },
+        "js/pageutil": {
+            "scripts": [
+                "vendor/fuelux/dist/js/fuelux.min.js",
+                "vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js",
+                "vendor/geocomplete/jquery.geocomplete.min.js",
+                "local/util/js/chinmaya_util_99.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "css/pageutil1": {
+            "styles": [
+                "vendor/fuelux/dist/css/fuelux.min.css"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "styles": "plain"
+                    }
+                }
+            }
+        }
+    }
+}
