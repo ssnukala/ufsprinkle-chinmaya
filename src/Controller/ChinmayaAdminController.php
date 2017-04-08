@@ -1,11 +1,10 @@
 <?php
 
 /**
- * Chinmaya Registration Sevak (http://www.chinmayacloud.com)
+ * Custom user Admin controller 
  *
- * @link      https://github.com/chinmaya.regsevak
+ * @link      https://github.com/ssnukala/ufsprinkle-chinmaya
  * @copyright Copyright (c) 2013-2016 Srinivas Nukala
- * @license   https://github.com/chinmaya.regsevak/blob/master/licenses/UserFrosting.md (MIT License)
  */
 
 namespace UserFrosting\Sprinkle\Chinmaya\Controller;
@@ -22,12 +21,12 @@ use UserFrosting\Sprinkle\Chinmaya\Controller\DTUserReportController;
 use UserFrosting\Sprinkle\SnUtilities\Controller\SnUtilities as SnUtil;
 
 /**
- * AdminController Class
+ * ChinmayaAdminController Class
  *
  * Controller class for /admin URL.  Handles admin-related activities
+ * Overrides default admin sprinkle functionality to create alternative dashboard etc.
  *
- * @author Alex Weissman
- * @link http://www.userfrosting.com/navigating/#structure
+ * @author Srinivas Nukala
  */
 class ChinmayaAdminController extends AdminController {
 

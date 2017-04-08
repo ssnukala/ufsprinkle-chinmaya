@@ -4,7 +4,6 @@
  *
  * @link      https://github.com/chinmaya.regsevak
  * @copyright Copyright (c) 2013-2016 Srinivas Nukala
- * @license   https://github.com/chinmaya.regsevak/blob/master/licenses/UserFrosting.md (MIT License)
  */
 
 $app->group('/chinmaya', function () {

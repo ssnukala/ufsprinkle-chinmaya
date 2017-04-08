@@ -18,8 +18,7 @@
                 "vendor/lightbox2/dist/js/lightbox-plus-jquery.min.js",
                 "vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
                 "vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js",
-                "vendor/geocomplete/jquery.geocomplete.min.js",
-                "local/util/js/chinmaya_util_99.js"
+                "vendor/geocomplete/jquery.geocomplete.min.js"
             ],
             "options": {
                 "result": {
@@ -47,8 +46,7 @@
             "scripts": [
                 "vendor/fuelux/dist/js/fuelux.min.js",
                 "vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js",
-                "vendor/geocomplete/jquery.geocomplete.min.js",
-                "local/util/js/chinmaya_util_99.js"
+                "vendor/geocomplete/jquery.geocomplete.min.js"
             ],
             "options": {
                 "result": {

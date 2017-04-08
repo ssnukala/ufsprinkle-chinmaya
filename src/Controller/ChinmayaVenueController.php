@@ -1,11 +1,10 @@
 <?php
 
 /**
- * Chinmaya Registration Sevak (http://www.chinmayacloud.com)
+ * Venue controller 
  *
- * @link      https://github.com/chinmaya.regsevak
+ * @link      https://github.com/ssnukala/ufsprinkle-chinmaya
  * @copyright Copyright (c) 2013-2016 Srinivas Nukala
- * @license   https://github.com/chinmaya.regsevak/blob/master/licenses/UserFrosting.md (MIT License)
  */
 
 namespace UserFrosting\Sprinkle\Chinmaya\Controller;
@@ -19,14 +18,7 @@ use UserFrosting\Sprinkle\Chinmaya\Controller\DTVenueShortReportController;
 use UserFrosting\Sprinkle\Chinmaya\Controller\DTVenueLongReportController;
 use UserFrosting\Sprinkle\SnUtilities\Controller\SnUtilities as SnUtil;
 
-/**
- * AdminController Class
- *
- * Controller class for /admin URL.  Handles admin-related activities
- *
- * @author Alex Weissman
- * @link http://www.userfrosting.com/navigating/#structure
- */
+
 class ChinmayaVenueController extends AdminController {
 
     /**
@@ -34,17 +26,6 @@ class ChinmayaVenueController extends AdminController {
      *
      */
     public function pageDashboard($request, $response, $args) {
-        //** @var UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager */
-//        $authorizer = $this->ci->authorizer;
-
-        /** @var UserFrosting\Sprinkle\Account\Model\User $currentUser */
-//        $currentUser = $this->ci->currentUser;
-
-        // Access-controlled page
-//        if (!$authorizer->checkAccess($currentUser, 'uri_dashboard')) {
-//            throw new ForbiddenException();
-//        }
-
         /** @var Config $config */
         $config = $this->ci->config;
 

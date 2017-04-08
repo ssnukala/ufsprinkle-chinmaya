@@ -1,4 +1,10 @@
 <?php
+/**
+ * UF User Report Datatable controller 
+ *
+ * @link      https://github.com/ssnukala/ufsprinkle-chinmaya
+ * @copyright Copyright (c) 2013-2016 Srinivas Nukala
+ */
 
 namespace UserFrosting\Sprinkle\Chinmaya\Controller;
 

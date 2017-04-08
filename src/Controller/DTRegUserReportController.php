@@ -1,4 +1,10 @@
 <?php
+/**
+ * RegSevak User Report Datatable controller 
+ *
+ * @link      https://github.com/ssnukala/ufsprinkle-chinmaya
+ * @copyright Copyright (c) 2013-2016 Srinivas Nukala
+ */
 
 namespace UserFrosting\Sprinkle\Chinmaya\Controller;
 
@@ -8,13 +14,7 @@ use UserFrosting\Sprinkle\Core\Util\EnvironmentInfo;
 use UserFrosting\Sprinkle\SnDatatables\Controller\SnDatatablesFFController;
 use UserFrosting\Sprinkle\SnUtilities\Controller\SnUtilities as SnUtil;
 
-/**
- * iListDTDBController
- *
- * @package UserFrosting-Datatables
- * @author Srinivas Nukala
- * @link http://srinivasnukala.com
- */
+
 class DTRegUserReportController extends SnDatatablesFFController {
 
     public function setupDatatable($properties = []) {
@@ -58,12 +58,6 @@ class DTRegUserReportController extends SnDatatablesFFController {
         $par_order = $this->_order_by;
         error_log("Line 96 the where criteria is $par_where, order by is $par_order");
         parent::getDataFromSource($getparam, $par_nondbcols, $par_where, $par_filter, $par_order);
-
-// This will set $this->_data These 3 arrays will be available if we want to change anything before the data gets sent out
-//             
-//            $this->_data['records'] = $var_retdata['records'];
-//            $this->_data['filtered_count'] = $var_retdata['filtered_count'];
-//            $this->_data['total_count'] = $var_retdata['total_count'];
     }
 
 }

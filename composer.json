@@ -1,14 +1,14 @@
 {
-    "name": "userfrosting/sprinkle-account",
+    "name": "ssnukala/ufsprinkle-chinmaya",
     "type": "sprinkle",
-    "description": "Authentication and account management module for UserFrosting.",
+    "description": "Chinmaya Sprinkle module for UserFrosting.",
     "keywords": ["php user management", "usercake", "bootstrap"],
-    "homepage": "https://github.com/userfrosting/UserFrosting",
+    "homepage": "https://github.com/ssnukala/ufsprinkle-chinmaya",
     "license" : "MIT",
     "authors" : [
         {
-            "name": "Alexander Weissman",
-            "homepage": "https://alexanderweissman.com"
+            "name": "Srinivas Nukala",
+            "homepage": "http://srinivasnukala.com"
         }
     ],
     "version": "4.0.0",
