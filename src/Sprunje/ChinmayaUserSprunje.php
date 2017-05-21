@@ -24,13 +24,15 @@ class ChinmayaUserSprunje extends Sprunje
     protected $name = 'users';
 
     protected $sortable = [
-        'name',
+        '_any',
         'last_activity',
         'flag_enabled'
     ];
 
     protected $filterable = [
-        '_any'
+        '_any',
+        'last_activity',
+        'flag_enabled'
     ];
 
     /**
@@ -59,6 +61,25 @@ class ChinmayaUserSprunje extends Sprunje
     }
 
     /**
+     * Filter LIKE the last activity description.
+     *
+     * @param Builder $query
+     * @param mixed $value
+     * @return Builder
+     */
+    protected function filterLastActivity($query, $value)
+    {
+        // Split value on separator for OR queries
+        $values = explode($this->orSeparator, $value);
+        return $query->where(function ($query) use ($values) {
+            foreach ($values as $value) {
+                $query = $query->orLike('activities.description', $value);
+            }
+            return $query;
+        });
+    }
+
+    /**
      * Filter LIKE the first name, last name, or email.
      *
      * @param Builder $query
@@ -78,4 +99,29 @@ class ChinmayaUserSprunje extends Sprunje
             return $query;
         });
     }
+
+    /**
+     * Sort based on last activity time.
+     *
+     * @param Builder $query
+     * @param string $direction
+     * @return Builder
+     */
+    protected function sortLastActivity($query, $direction)
+    {
+        return $query->orderBy('activities.occurred_at', $direction);
+    }
+
+    /**
+     * Sort based on last name.
+     *
+     * @param Builder $query
+     * @param string $direction
+     * @return Builder
+     */
+    protected function sort_any($query, $direction)
+    {
+        return $query->orderBy('last_name', $direction);
+    }
+    
 }
