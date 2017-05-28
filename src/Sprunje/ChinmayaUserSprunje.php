@@ -11,6 +11,8 @@ namespace UserFrosting\Sprinkle\Chinmaya\Sprunje;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use UserFrosting\Sprinkle\Core\Facades\Debug;
 use UserFrosting\Sprinkle\Core\Sprunje\Sprunje;
+use Illuminate\Support\Str;
+
 
 /**
  * UserSprunje
@@ -86,8 +88,9 @@ class ChinmayaUserSprunje extends Sprunje
      * @param mixed $value
      * @return Builder
      */
-    protected function filter_any($query, $value)
+    protected function filterAny($query, $value)
     {
+//Debug::debug("Line 28 Str::studly('_any')=".Str::studly('_any'));        
         // Split value on separator for OR queries
         $values = explode($this->orSeparator, $value);
         return $query->where(function ($query) use ($values) {
@@ -119,7 +122,7 @@ class ChinmayaUserSprunje extends Sprunje
      * @param string $direction
      * @return Builder
      */
-    protected function sort_any($query, $direction)
+    protected function sortAny($query, $direction)
     {
         return $query->orderBy('last_name', $direction);
     }
