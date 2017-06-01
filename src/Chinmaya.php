@@ -10,6 +10,7 @@ namespace UserFrosting\Sprinkle\Chinmaya;
 
 use UserFrosting\Sprinkle\Chinmaya\ServicesProvider\ChinmayaServicesProvider;
 use UserFrosting\System\Sprinkle\Sprinkle;
+use UserFrosting\Sprinkle\SnUtilities\Controller\SnDBUtilities as SnDbUtil;
 
 /**
  * Bootstrapper class for the 'admin' sprinkle.
@@ -25,5 +26,6 @@ class Chinmaya extends Sprinkle
     {
         $serviceProvider = new ChinmayaServicesProvider();
         $serviceProvider->register($this->ci);
+SnDbUtil::getMigrationDataArray('sevak_formfields');        
     }
 }
