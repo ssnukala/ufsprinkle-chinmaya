@@ -9,7 +9,7 @@
 namespace UserFrosting\Sprinkle\Chinmaya;
 
 use UserFrosting\Sprinkle\Chinmaya\ServicesProvider\ChinmayaServicesProvider;
-use UserFrosting\Sprinkle\Core\Initialize\Sprinkle;
+use UserFrosting\System\Sprinkle\Sprinkle;
 
 /**
  * Bootstrapper class for the 'admin' sprinkle.
