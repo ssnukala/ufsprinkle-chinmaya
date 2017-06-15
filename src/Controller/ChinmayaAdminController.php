@@ -12,10 +12,10 @@ namespace UserFrosting\Sprinkle\Chinmaya\Controller;
 use Carbon\Carbon;
 use UserFrosting\Sprinkle\Admin\Controller\AdminController;
 use UserFrosting\Support\Exception\ForbiddenException;
-use UserFrosting\Sprinkle\Account\Model\Group;
-use UserFrosting\Sprinkle\Account\Model\User;
-use UserFrosting\Sprinkle\Account\Model\Role;
-use UserFrosting\Sprinkle\Core\Model\Version;
+use UserFrosting\Sprinkle\Account\Database\Models\Group;
+use UserFrosting\Sprinkle\Account\Database\Models\User;
+use UserFrosting\Sprinkle\Account\Database\Models\Role;
+use UserFrosting\Sprinkle\Core\Database\Models\Version;
 use UserFrosting\Sprinkle\Core\Util\EnvironmentInfo;
 use UserFrosting\Sprinkle\Chinmaya\Controller\DTUserReportController;
 use UserFrosting\Sprinkle\SnUtilities\Controller\SnUtilities as SnUtil;
@@ -38,7 +38,7 @@ class ChinmayaAdminController extends AdminController {
         //** @var UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager */
         $authorizer = $this->ci->authorizer;
 
-        /** @var UserFrosting\Sprinkle\Account\Model\User $currentUser */
+        /** @var UserFrosting\Sprinkle\Account\Database\Models\User $currentUser */
         $currentUser = $this->ci->currentUser;
 
         // Access-controlled page

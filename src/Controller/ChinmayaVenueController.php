@@ -12,7 +12,7 @@ namespace UserFrosting\Sprinkle\Chinmaya\Controller;
 use Carbon\Carbon;
 use UserFrosting\Sprinkle\Admin\Controller\AdminController;
 use UserFrosting\Support\Exception\ForbiddenException;
-use UserFrosting\Sprinkle\Core\Model\Version;
+use UserFrosting\Sprinkle\Core\Database\Models\Version;
 use UserFrosting\Sprinkle\Core\Util\EnvironmentInfo;
 use UserFrosting\Sprinkle\Chinmaya\Controller\DTVenueShortReportController;
 use UserFrosting\Sprinkle\Chinmaya\Controller\DTVenueLongReportController;

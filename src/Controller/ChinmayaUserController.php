@@ -38,7 +38,7 @@ class ChinmayaUserController extends  UserController
         /** @var UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager */
         $authorizer = $this->ci->authorizer;
 
-        /** @var UserFrosting\Sprinkle\Account\Model\User $currentUser */
+        /** @var UserFrosting\Sprinkle\Account\Database\Models\User $currentUser */
         $currentUser = $this->ci->currentUser;
 
         // Access-controlled page
@@ -70,7 +70,7 @@ class ChinmayaUserController extends  UserController
         /** @var UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager */
         $authorizer = $this->ci->authorizer;
 
-        /** @var UserFrosting\Sprinkle\Account\Model\User $currentUser */
+        /** @var UserFrosting\Sprinkle\Account\Database\Models\User $currentUser */
         $currentUser = $this->ci->currentUser;
 
         // Access-controlled page
