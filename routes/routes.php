@@ -12,9 +12,3 @@ $app->group('/chinmaya', function () {
     $this->post('/groupreport','UserFrosting\Sprinkle\Chinmaya\Controller\ChinmayaAdminController:groupData');
     $this->post('/reguserreport','UserFrosting\Sprinkle\Chinmaya\Controller\ChinmayaAdminController:regsevakUserData');
 });
-
-$app->group('/venues', function () {
-    $this->get('/dashboard','UserFrosting\Sprinkle\Chinmaya\Controller\ChinmayaVenueController:pageDashboard');
-    $this->post('/venuelong','UserFrosting\Sprinkle\Chinmaya\Controller\ChinmayaVenueController:venueLongData');
-    $this->post('/venueshort','UserFrosting\Sprinkle\Chinmaya\Controller\ChinmayaVenueController:venueShortData');
-});
