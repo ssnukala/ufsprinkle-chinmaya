@@ -12,10 +12,10 @@ namespace UserFrosting\Sprinkle\Chinmaya\Controller;
 use Carbon\Carbon;
 use UserFrosting\Sprinkle\Admin\Controller\AdminController;
 use UserFrosting\Support\Exception\ForbiddenException;
-use UserFrosting\Sprinkle\Account\Model\Group;
-use UserFrosting\Sprinkle\Account\Model\User;
-use UserFrosting\Sprinkle\Account\Model\Role;
-use UserFrosting\Sprinkle\Core\Model\Version;
+use UserFrosting\Sprinkle\Account\Database\Models\Group;
+use UserFrosting\Sprinkle\Account\Database\Models\User;
+use UserFrosting\Sprinkle\Account\Database\Models\Role;
+//use UserFrosting\Sprinkle\Core\Database\Models\Version;
 use UserFrosting\Sprinkle\Core\Util\EnvironmentInfo;
 use UserFrosting\Sprinkle\Chinmaya\Controller\DTUserReportController;
 use UserFrosting\Sprinkle\SnUtilities\Controller\SnUtilities as SnUtil;
@@ -29,7 +29,7 @@ use UserFrosting\Sprinkle\SnUtilities\Controller\SnUtilities as SnUtil;
  * @author Srinivas Nukala
  */
 class ChinmayaAdminController extends AdminController {
-
+  
     /**
      * Renders the admin panel dashboard
      *
@@ -38,7 +38,7 @@ class ChinmayaAdminController extends AdminController {
         //** @var UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager */
         $authorizer = $this->ci->authorizer;
 
-        /** @var UserFrosting\Sprinkle\Account\Model\User $currentUser */
+        /** @var UserFrosting\Sprinkle\Account\Database\Models\User $currentUser */
         $currentUser = $this->ci->currentUser;
 
         // Access-controlled page
@@ -48,8 +48,8 @@ class ChinmayaAdminController extends AdminController {
 
         // Probably a better way to do this
         $users = User::orderBy('created_at', 'desc')
-                ->take(8)
-                ->get();
+               ->take(8)
+               ->get();
 
         // Transform the `create_at` date in "x days ago" type of string
         $users->transform(function ($item, $key) {
@@ -63,31 +63,9 @@ class ChinmayaAdminController extends AdminController {
         /** @var Config $config */
         $cache = $this->ci->cache;
 
-        // Load some system info from cache. If not present in cache, we cache them
-        $ufVersion = $cache->rememberForever('uf_version', function () {
-            return Version::where('sprinkle', 'core')->first()->version;
-        });
-
-        $sprinkles = $cache->rememberForever('uf_sprinklesVersion', function() {
-            $sprinkles = array();
-            foreach ($this->ci->sprinkleManager->getSprinkles() as $sprinkle) {
-
-                // Get sprinkle db version number
-                if ($sprinkleVersion = Version::where('sprinkle', $sprinkle)->first()) {
-                    $version = $sprinkleVersion->version;
-                } else {
-                    $version = null;
-                }
-
-                $sprinkles[] = [
-                    'name' => $sprinkle,
-                    'version' => $version
-                ];
-            }
-            return $sprinkles;
-        });
-
-
+        // Get each sprinkle db version
+        $sprinkles = $this->ci->sprinkleManager->getSprinkleNames();
+        
         $lproperties = ['htmlid' => 'cmrep_dt_3', 'dtjsvar' => 'cmrepDT3', 'role' => 'admin'];
         $reportcontroller = new DTUserReportController($this->ci);
         $reportcontroller->setupDatatable($lproperties);
@@ -108,31 +86,30 @@ class ChinmayaAdminController extends AdminController {
         $regsevakuserctl->setupDatatable($rproperties);
         $regsevakuserctl->createDatatableHTMLJS();
         $rsvkreport = $regsevakuserctl->getDatatableArray();
-        
 //        SnUtil::logarr($cmreport,"Line 100");
-        return $this->ci->view->render($response, "pages/cm-dashboard.html.twig", [
-                    'counter' => [
-                        'users' => User::count(),
-                        'roles' => Role::count(),
-                        'groups' => Group::count(),
-                    ],
-                    'info' => [
-                        'version' => [
-                            'UF' => $ufVersion,
-                            'php' => phpversion(),
-                            'database' => EnvironmentInfo::database()
-                        ],
-                        'database' => [
-                            'name' => $config['db.default.database']
-                        ],
-                        'environment' => $this->ci->environment,
-                        'path' => [
-                            'project' => \UserFrosting\ROOT_DIR
-                        ]
-                    ],
-                    "cmreport" => $cmreport,"groupreport"=>$grpreport,"rsvkreport"=>$rsvkreport,
-                    'sprinkles' => $sprinkles,
-                    'users' => $users
+        return $this->ci->view->render($response, 'pages/dashboard.html.twig', [
+            'counter' => [
+                'users' => User::count(),
+                'roles' => Role::count(),
+                'groups' => Group::count(),
+            ],
+            'info' => [
+                'version' => [
+                    'UF' => \UserFrosting\VERSION,
+                    'php' => phpversion(),
+                    'database' => EnvironmentInfo::database()
+                ],
+                'database' => [
+                    'name' => $config['db.default.database']
+                ],
+                'environment' => $this->ci->environment,
+                'path' => [
+                    'project' => \UserFrosting\ROOT_DIR
+                ]
+            ],
+            "cmreport" => $cmreport,"groupreport"=>$grpreport,"rsvkreport"=>$rsvkreport,
+            'sprinkles' => $sprinkles,
+            'users' => $users
         ]);
     }
 
@@ -156,7 +133,7 @@ class ChinmayaAdminController extends AdminController {
         
         $reportcontroller = new DTGroupReportController($this->ci);
         $var_dtoptions = $reportcontroller->getDatatablePost($request);
-SnUtil::logarr($var_dtoptions, "Line 159 sending the following to populate datatable");
+//SnUtil::logarr($var_dtoptions, "Line 159 sending the following to populate datatable");
         $var_dtoptions['htmlid'] = $var_dtoptions['id'];
         $reportcontroller->setupDatatable($var_dtoptions);
 
